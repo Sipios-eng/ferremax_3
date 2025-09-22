@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="bg-dark shadow rounded p-3 w-100 w-lg-50">
+    <h1 class="rounded bg-dark p-3 text-light text-center">Historial de {{Producto.nombre}}</h1>
+</div>
+<br>
+
+<div class="">
+    {{ grafico|safe }}
+</div>
+
+<br>
+
+<!-- Contenedor para los botones -->
+<div class="d-flex justify-content-between mt-4">
+    <!-- Botón para volver -->
+    <a href="{% url 'productos' %}">
+        <button class="btn btn-primary btn-lg">Volver</button>
+    </a>
+
+    <!-- Botón para exportar a PDF -->
+    <a href="{% url 'exportarPdf' Producto.id %}">
+        <button class="btn btn-success btn-lg">Exportar a PDF</button>
+
+{% endblock %}

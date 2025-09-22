@@ -1,0 +1,77 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="bg-dark shadow rounded p-3 w-100 w-lg-50">
+    <h1 class="rounded bg-dark p-3 text-light">Editar Producto </h1>
+</div>
+<br>
+<div class="d-flex justify-content-center">
+    <br>
+    <form class="row g-3 w-75 w-lg-50" method="POST">
+        {% csrf_token %}
+        {% if messages %}
+            {% for msg in messages %}
+              {% if msg.tags == 'error' %}
+              <div class="alert alert-danger  alert-dismissible fade show" role="alert">
+                <strong>{{ msg }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div> 
+              {% elif msg.tags == 'success' %}
+              <div class="alert alert-success  alert-dismissible fade show" role="alert">
+                <strong>{{ msg }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div> 
+              {% endif %} 
+            {% endfor %}
+        {% endif %} 
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="nameP" name="nombreProducto" required placeholder="Nombre del producto" value="{{ producto.nombre }}"/>
+            <label for="nombreProducto" class="form-label mx-2">Nombre del producto</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="descripcion" name="descripcionProducto" required placeholder="Descripcion del producto" value="{{ producto.descripcion }}"/>
+            <label for="descripcionProducto" class="form-label mx-2">Descripcion del producto</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" id="precioId" name="precio" required placeholder="Precio del producto" min="0" value="{{ producto.precio }}"/>
+            <label for="precio" class="form-label mx-2">Precio del producto</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" id="cantidadId" name="cantidad" required placeholder="Cantidad del producto" min="0" value="{{ producto.cantidad_disponible }}"/>
+            <label for="cantidad" class="form-label mx-2">Cantidad a ingresar</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="imagenP" name="imagenP" placeholder="Imagen del producto" value="{{ producto.imagen_url }}"/>
+            <label for="imagenP" class="form-label mx-2">Imagen del producto (URL)</label>
+        </div>
+
+        <div class="form-floating">
+            <select class="form-select" aria-label="Default select example" name="marcaP" id="marca_id">
+                <option disabled>Selecciona una marca</option>
+                {% for x in marca %}
+                    <option value="{{ x.id }}" {% if x.id == producto.marca.id %}selected{% endif %}>{{ x.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-floating">
+            <select class="form-select" aria-label="Default select example" name="categoriaP" id="categoria_id">
+                <option disabled>Selecciona una categoria</option>
+                {% for x in categoria %}
+                    <option value="{{ x.id }}" {% if x.id == producto.tipo_producto.id %}selected{% endif %}>{{ x.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-12 btn-section">
+            <button class="btn btn-primary w-100 w-lg-50 shadow" type="submit">Actualizar producto</button>
+            <a href="{% url 'actualizar_producto' %}" class="btn btn-secondary w-100 w-lg-50 shadow" type="submit">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

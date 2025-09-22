@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="bg-dark shadow rounded p-3 w-100 w-lg-50">
+    <h1 class="rounded bg-dark p-3 text-light">Obtener datos de API REST</h1>
+</div>
+<hr>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> 
+    {% endfor %}
+{% endif %}
+
+{% if item %}
+{{item}}
+{% endif %}
+<div class="d-flex align-items-center justify-content-center">
+<form method="POST" action="{% url 'getApi' %}">
+    {% csrf_token %}
+    <button class="btn btn-primary btn-lg m-2" type="submit" name='FormProducto'>Obtener Datos de Productos</button>
+</form>
+<br>
+<form method="POST" action="{% url 'getApi' %}">
+    {% csrf_token %}
+    <button class="btn btn-primary btn-lg m-2" type="submit" name="FormMarca">Obtener Datos de Marcas</button>
+</form>
+<br>
+<form method="POST" action="{% url 'getApi' %}">
+    {% csrf_token %}
+    <button class="btn btn-primary btn-lg m-2" type="submit" name="FormTipoProducto">Obtener Datos de Categorias</button>
+</form>
+<br>
+</div>
+{% endblock%} 

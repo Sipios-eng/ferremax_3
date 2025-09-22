@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %} 
+<div class="bg-dark shadow rounded p-3 w-100 w-lg-50">
+    <h1 class="rounded bg-dark p-3 text-light">Actualizar productos</h1>
+</div>
+<br><br>
+<table class="table table-striped table-hover shadow-lg mb-5 text-center">
+    <thead>
+      <tr>
+        <th scope="col" class="col">id</th>
+        <th scope="col" class="col">Producto</th>
+        <th scope="col" class="col">Descripcion</th>
+        <th scope="col" class="col">Precio</th>
+        <th scope="col" class="col">Cantidad disponible</th>
+        <th scope="col" class="col">Imagen</th>
+        <th scope="col" class="col">Marca</th>
+        <th scope="col" class="col">Categoria</th>
+        <th scope="col" class="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in producto %}
+      <tr>
+        <td>{{i.id }}</td>
+        <td>{{ i.nombre }}</td>
+        <td>{{ i.descripcion }}</td>
+        <td>{{ i.precio }}</td> 
+        <td>{{ i.cantidad_disponible }}</td> 
+        <td><img src="{{ i.imagen_url }}" class="card-img-top" alt="foto"></td>
+        <td>{{ i.marca.nombre }}</td>
+        <td>{{ i.tipo_producto.nombre }}</td>
+        <td><a class="btn btn-primary shadow" href="{% url 'edit_producto' i.id%}" role="button">Actualizar</a></td>
+       </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock%}  

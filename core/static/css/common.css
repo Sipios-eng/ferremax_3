@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+body {
+  background-color: #f8f9fa;
+}
+
+header,
+main,
+footer {
+  margin: auto;
+  width: 70vw;
+}
+
+a,
+a h1 {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*div de botones*/
+.btn-section {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  margin: 0 auto;
+}
+
+/*tamaño de vista previa de noticia*/
+.preview {
+  width: 350px;
+  height: 500px;
+}
+.healine-title{
+  -webkit-text-stroke: 2px #333333;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+
+/*flecha de carousel*/
+.dark-img {
+  background-color: black;
+  padding: 1rem;
+}
+
+/*tamaño del contenedor de imagen titular*/
+.img-size {
+  max-height: 800px;
+  height: 800px;
+  max-width: 800px;
+  width: 800px;
+  object-fit: cover;
+}
+
+/*tamaño del contenedor de edicion de imagen*/
+.img-edit-img {
+  height: 450px;
+}
+
+/*tamaño del input de edicion de imagen*/
+.img-edit-input {
+  height: calc(100% - 450px);
+}
+
+/*color enlace de navbar*/
+.link-opt {
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 0.25rem;
+}
+
+/*color enlace de navbar*/
+.link-opt:hover,
+.link-opt:focus {
+  background-color: #888;
+  color: whitesmoke;
+}
+
+/*color enlace de navbar*/
+.link-opt:not(:hover):not(:focus) {
+  background-color: transparent;
+}
+
+/*hover para olvido contraseña*/
+.help{
+  transition: .25s;
+}
+
+.help:hover{
+  text-shadow: 0 0 15px black;
+}
+
+/*lista de noticias*/
+.lista-noticias{
+  display: none;
+}
+
+/* Estilos para pantallas medianas */
+@media screen and (max-width: 1200px) {
+  header,
+  main,
+  footer,
+  .navbar {
+    width: 100vw;
+  }
+
+  .btn-section {
+    width: 100%;
+  }
+
+  header,
+  main,
+  footer,
+  .btn-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    margin: auto;
+  }
+
+  .btn-section {
+    flex-direction: row;
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 800px) {
+  header,
+  main,
+  footer,
+  .navbar {
+    width: 100vw;
+  }
+
+  .btn-section {
+    width: 100%;
+  }
+
+  header,
+  main,
+  footer,
+  .btn-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    margin: auto;
+  }
+
+  footer {
+    display: none;
+  }
+
+  .img-size {
+    max-height: 350px;
+    height: 350px;
+    max-width: 350px;
+    width: 350px;
+    object-fit: cover;
+  }
+
+}

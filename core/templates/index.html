@@ -1,0 +1,113 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="https://www.imperial.cl/file/v7235393374981971517/general/145162-desk.jpg"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://www.imperial.cl/file/v5974327542637068920/general/82029-desk.jpg"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://www.imperial.cl/file/v4907386238608166189/general/%20Carrusel_Desktop%20HERRAS%2020-151371.jpg"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<hr />
+<!-- Sección de productos -->
+<div class="row mt-5">
+  <div class="col-md-4">
+    <div class="card">
+      <img
+        src="https://www.ferremax.cl/storage/2021/06/TG10613362.jpg"
+        class="card-img-top"
+        alt=""
+      />
+      <div class="card-body">
+        <h5 class="card-title">Total</h5>
+        <p class="card-text">Taladro de impacto 13 mm 680W TG1061356</p>
+        <a href="{% url 'productos' %}" class="btn btn-primary">Comprar</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <img
+        src="https://www.easy.cl/_next/image?url=https%3A%2F%2Feasycl.vteximg.com.br%2Farquivos%2Fids%2F4926196%2F185197-0800-001.jpg%3Fv%3D638738886911900000&w=640&q=75"
+        class="card-img-top"
+        alt=""
+      />
+      <div class="card-body">
+        <h5 class="card-title">Stihl</h5>
+        <p class="card-text">Motosierra combustión 45,4 cc 3,1 HP 18'' MS250</p>
+        <a href="{% url 'productos' %}" class="btn btn-primary">Comprar</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <img
+        src="https://www.easy.cl/_next/image?url=https%3A%2F%2Feasycl.vteximg.com.br%2Farquivos%2Fids%2F4898750%2F1397398-0000-002.jpg%3Fv%3D638737164701030000&w=640&q=75"
+        class="card-img-top"
+        alt=""
+      />
+      <div class="card-body">
+        <h5 class="card-title">Einhell</h5>
+        <p class="card-text">Esmeril angular TE-AG 115/750W DP + 10 discos</p>
+        <a href="{% url 'productos' %}" class="btn btn-primary">Comprar</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}

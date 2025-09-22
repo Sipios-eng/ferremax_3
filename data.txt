@@ -1,0 +1,261 @@
+// Marca
+
+[
+    {
+        "nombre": "Total"
+    },
+    {
+        "nombre": "Hyundai"
+    },
+    {
+        "nombre": "Stanley"
+    },
+    {
+        "nombre": "Grau"
+    },
+    {
+        "nombre": "Arauco"
+    },
+    {
+        "nombre": "Bash"
+    },
+    {
+        "nombre": "veloti"
+    },
+    {
+        "nombre": "Mamut"
+    },
+    {
+        "nombre": "Arar"
+    },
+    {
+        "nombre": "Imporper"
+    },
+    {
+        "nombre": "Tajamar"
+    },
+    {
+        "nombre": "Sipa"
+    },
+    {
+        "nombre": "Bosch"
+    },
+]
+
+// Tipo Producto
+[
+    {
+
+        "nombre": "Herramientas Manuales"
+    },
+    {
+
+        "nombre": "Materiales Básicos"
+    },
+    {
+
+        "nombre": "Equipos de Seguridad"
+    },
+    {
+
+        "nombre": "Tornillos y Anclajes"
+    },
+    {
+        "nombre": "Fijaciones y Adhesivos"
+    },
+    {
+        "nombre": "Equipos de Medición"
+    }
+]
+
+// Productos
+
+
+[
+    {
+        "nombre": "Taladro de impacto 13 mm 680W TG1061356 Total",
+        "descripcion": "El taladro de impacto TG1061356 de Total ofrece una potencia de entrada de 680W, una velocidad sin carga de 0 - 3000 RPM y una capacidad máxima de perforación de 13 mm. También, cuenta con velocidad variable, interruptor de avance y retroceso y función de martillo.",
+        "precio": 29990,
+        "stock": 5,
+        "imagen": "https://easycl.vtexassets.com/arquivos/ids/555271-1200-auto?width=1200&height=auto&aspect=true",
+        "id_marca": 1,
+        "id_tipoproducto": 1
+    },
+    {
+        "nombre": "Lijadora orbital 240 W 82HYDA704 Hyundai",
+        "descripcion": "No aplica",
+        "precio": 35990,
+        "stock": 3,
+        "imagen": "https://easycl.vtexassets.com/arquivos/ids/633322-800-auto?width=800&height=auto&aspect=true",
+        "id_marca": 2,
+        "id_tipoproducto": 1
+    },
+    {
+        "nombre": "Bloque de hormigón 19x19x39 cm liso Grau",
+        "descripcion": "Bloque de hormigón para construcción. Uso en muros divisorios, albañilería armada en interiores de viviendas y edificios. Gran calidad.",
+        "precio": 1740,
+        "stock": 5,
+        "imagen": "https://easycl.vtexassets.com/arquivos/ids/367604/101512003-01.jpg?v=637533944197670000",
+        "id_marca": 4,
+        "id_tipoproducto": 2
+    },
+    {
+    "nombre": "Destornillador punta cruz PH2 100 mm Cushion Grip Stanley",
+    "descripcion": "El Destornillador Cushion Grip de Stanley cuenta con punta imantada, que facilita el encaje de la punta en el tornillo, mango con diseño innovador, que se diferencia por la excelente ergonomía y óptimo manejo, y punta endurecida para una vida útil más larga. Además, tiene identificación de la medida en la parte superior de la herramienta y un orificio en el mango para facilitar el almacenaje.",
+    "precio": 9990,
+    "stock": 10,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/337091/1250815-01.jpg?v=637532805670870000",
+    "id_marca": 3,
+    "id_tipoproducto": 1
+    },
+    {
+    "nombre": "Pino seco cepillado premium 1x2 3,2 m",
+    "descripcion": "Pino seco 12 Pulgadas 3,2 mt",
+    "precio": 1390,
+    "stock": 20,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/172695/192585-01.jpg?v=637527471510670000",
+    "id_marca": 5,
+    "id_tipoproducto": 2
+    },
+    {
+    "nombre": "Pino seco cepillado premium 1x8 3,2 m",
+    "descripcion": "Pino seco 1.8 Pulgadas 3,2 Metros",
+    "precio": 5990,
+    "stock": 10,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/172791/192595-01.jpg?v=637527471960870000",
+    "id_marca": 5,
+    "id_tipoproducto": 2
+    },
+    {
+    "nombre": "Cerradura sobreponer acceso/corredera 1003-PTC antibacteriana Bash",
+    "descripcion": "Antimicrobiana, 2 salidas de cerrojos, pitones de acero, picaporte reversible de bronce, doble vuelta de llave",
+    "precio": 29990,
+    "stock": 5,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/190356/1223211-01.jpg?v=637527553718670000",
+    "id_marca": 6,
+    "id_tipoproducto": 3
+    },
+    {
+    "nombre": "Cámara domo IP WIFI Veloti.",
+    "descripcion": "La Cámara Domo IP de Veloti tiene múltiples atributos que la hacen una de las mejores alternativas de Cámaras Exteriores. Posee una composición resistente y es antiagua y antipolvo. Gracias a su tecnología, visualmente puede alcanzar hasta 30 metros de distancia.",
+    "precio": 81990,
+    "stock": 10,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/726771/1685309255948_1304468-05.jpg?v=638209060725730000",
+    "id_marca": 7,
+    "id_tipoproducto": 3
+    },
+    {
+    "nombre": "Video portero LED 6'' Veloti",
+    "descripcion": "no aplica",
+    "precio": 114990,
+    "stock": 5,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/215478/1275282-01.jpg?v=637528098843700000",
+    "id_marca": 7,
+    "id_tipoproducto": 3
+    },{
+    "nombre": "Tornillo cabeza lenteja 8mmx1/2'' autoperforante 100 unidades Mamut",
+    "descripcion": "Punta broca permite perforar láminas de hasta 2mm de espesor. Golilla estampada aumenta el área de sujeción. Ranura Phillips N°2. Terminación zincado brillante. Para unión de elementos metálicos - construcción de cielos y tabiques. Material resistente.",
+    "precio": 3590,
+    "stock": 6,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/162527/144421.jpg?v=637527416644770000",
+    "id_marca": 8,
+    "id_tipoproducto": 4
+},{
+    "nombre": "Tornillo autoperforante con golilla 12 x 2 1/2'' Arar",
+    "descripcion": "Tornillo autoperforante con golilla metálica de 32 mm. Resistente a los rayos UV y doble canal de succión, que impide el paso de la humedad. Para la fijación de planchas como policarbonato. Tornillos a instalar bajo las especificaciones del fabricante. Incluye golilla.",
+    "precio": 15000,
+    "stock": 7,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/277267/593573-01.jpg?v=637529801681900000",
+    "id_marca": 9,
+    "id_tipoproducto": 4
+},
+{
+    "nombre": "Tornillo Volcanita N°6 x 1 5/8’’ Roscalata gruesa zincado Balde 600 unidades + punta Imporper",
+    "descripcion": "Tornillo volcanita autoperforante Rosca gruesa. Incluye una punta phillips#2. Su diámetro interior menor evita el hinchar y rajar la madera. Su paso de hilo mayor da superior resistencia al arrancamiento. Su filete es más alto y fino lo que permite un mayor número de remontaje",
+    "precio": 14990,
+    "stock": 7,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/876189/1713361377740_750297-01.jpg?v=638489581864830000",
+    "id_marca": 10,
+    "id_tipoproducto": 4
+},{
+    "nombre": "Pasta muro 1 tineta F-15 blanco Tajamar",
+    "descripcion": "Pasta muro, selladores y pinturas. Encuentra todo para tus proyectos en nuestro sitio",
+    "precio": 15090,
+    "stock": 7,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/669677/1673469776164_1197832-04.jpg?v=638090665837200000",
+    "id_marca": 11,
+    "id_tipoproducto": 5
+},
+{
+    "nombre": "Pasta muro 1 tineta blanco mate Sipa",
+    "descripcion": "Pasta muro, selladores y pinturas. Encuentra todo para tus proyectos en nuestro sitio",
+    "precio": 14990,
+    "stock": 8,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/288908/1190525-01.jpg?v=637530012229870000",
+    "id_marca": 12,
+    "id_tipoproducto": 5
+}
+,
+{
+    "nombre": "Pasta muro 1 galón F-15 Vinílica blanco Tajamar",
+    "descripcion": "Revestimiento plástico liso, preparado a base de resina vínilica.",
+    "precio": 4890,
+    "stock": 8,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/157635/105420-04.jpg?v=637527388320330000",
+    "id_marca": 11,
+    "id_tipoproducto": 5
+}
+,
+{
+    "nombre": "Nivel láser líneas y puntos verde GCL 2-15 G Bosch",
+    "descripcion": "El Nivel Láser Bosch GCL 2-15 G es el primer nivel láser verde 4 veces más visible y con líneas y puntos de plomada.",
+    "precio": 325990,
+    "stock": 6,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/807187/1671566363485_1228637-04.jpg?v=638356710737830000",
+    "id_marca": 13,
+    "id_tipoproducto": 6
+},
+{
+    "nombre": "Huincha de medir metálica largo 10.0m Stanley",
+    "descripcion": "Cinta de acero al carbono revestida en film poliéster Mylar para mayor durabilidad. Caja en material sintético cromado. Con clip de sujeción al cinturón",
+    "precio": 28990,
+    "stock": 7,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/160039/120042.jpg?v=637527403384170000",
+    "id_marca": 3,
+    "id_tipoproducto": 6
+}
+,
+{
+    "nombre": "Escuadra rápida 7x7'' TMT61201",
+    "descripcion": "no aplica",
+    "precio": 3590,
+    "stock": 5,
+    "imagen": "https://easycl.vtexassets.com/arquivos/ids/694393/1678367234117_1343773-01.jpg?v=638139640413900000",
+    "id_marca": 1,
+    "id_tipoproducto": 6
+}
+
+
+
+
+
+]
+
+
+insert into producto values(1,'Taladro de impacto 13 mm 680W TG1061356 Total','El taladro de impacto TG1061356 de Total ofrece una potencia de entrada de 680W, una velocidad sin carga de 0 - 3000 RPM y una capacidad máxima de perforación de 13 mm. También, cuenta con velocidad variable, interruptor de avance y retroceso y función de martillo.',29990,5,'https://easycl.vtexassets.com/arquivos/ids/555271-1200-auto?width=1200&height=auto&aspect=true',1,1);
+insert into producto values(2,'Lijadora orbital 240 W 82HYDA704 Hyundai','No aplica',35990,3,"https://easycl.vtexassets.com/arquivos/ids/633322-800-auto?width=800&height=auto&aspect=true",2,1);
+insert into producto values(3,'Destornillador punta cruz PH2 100 mm Cushion Grip Stanley','El Destornillador Cushion Grip de Stanley cuenta con punta imantada, que facilita el encaje de la punta en el tornillo, mango con diseño innovador, que se diferencia por la excelente ergonomía y óptimo manejo, y punta endurecida para una vida útil más larga. Además, tiene identificación de la medida en la parte superior de la herramienta y un orificio en el mango para facilitar el almacenaje.',9990,10,'https://easycl.vtexassets.com/arquivos/ids/337091/1250815-01.jpg?v=637532805670870000',3,1);
+insert into producto values(4,'Pino seco cepillado premium 1x2 3,2 m','Pino seco 12 Pulgadas 3,2 mt',1390,20,'https://easycl.vtexassets.com/arquivos/ids/172695/192585-01.jpg?v=637527471510670000',5,2);
+insert into producto values(5,'Pino seco cepillado premium 1x8 3,2 m','Pino seco 1. 8 Pulgadas 3,2 Metros',5990,10,'https://easycl.vtexassets.com/arquivos/ids/172791/192595-01.jpg?v=637527471960870000',5,2);
+insert into producto values(6,'Cerradura sobreponer acceso/corredera 1003-PTC antibacteriana Bash','Antimicrobiana, 2 salidas de cerrojos, pitones de acero, picaporte reversible de bronce, doble vuelta de llave',29990,5,'https://easycl.vtexassets.com/arquivos/ids/190356/1223211-01.jpg?v=637527553718670000',6,3);
+insert into producto values(7,'Cámara domo IP WIFI Veloti.','La Cámara Domo IP de Veloti tiene múltiples atributos que la hacen una de las mejores alternativas de Cámaras Exteriores. Posee una composición resistente y es antiagua y antipolvo. Gracias a su tecnología, visualmente puede alcanzar hasta 30 metros de distancia.',81990,10,'https://easycl.vtexassets.com/arquivos/ids/726771/1685309255948_1304468-05.jpg?v=638209060725730000',7,3);
+insert into producto values(8,'Video portero LED 6\'\' Veloti','no aplica',114990,5,'https://easycl.vtexassets.com/arquivos/ids/215478/1275282-01.jpg?v=637528098843700000',7,3);
+insert into producto values(9,'Tornillo cabeza lenteja 8mmx1/2\'\' autoperforante 100 unidades Mamut','Punta broca permite perforar laminas de hasta 2mm de espesor. Golilla estampada aumenta el área de sujeción. Ranura Phillips N°2 . Terminación zincado brillante. Para unión de elementos metálicos - construcción de cielos y tabiques. Material resistente.',3590,6,'https://easycl.vtexassets.com/arquivos/ids/162527/144421.jpg?v=637527416644770000',8,4);
+insert into producto values(10,'Tornillo autoperforante con golilla 12 x 2 1/2\'\' Arar','Tornillo autoperforante con golilla metálica de 32 mm. Resistente a los rayos UV y doble canal de succión, que impide el paso de la humedad. Para la fijación de planchas como policarbonato. Tornillos a instalar bajo las especificaciones del fabricante. Incluye golilla.',15000,7,'https://easycl.vtexassets.com/arquivos/ids/277267/593573-01.jpg?v=637529801681900000',9,4);
+insert into producto values(11,'Tornillo Volcanita N°6 x 1 5/8’’ Roscalata gruesa zincado Balde 600 unidades + punta Imporper','Tornillo volcanita autoperforante Rosca gruesa. Incluye una punta phillips#2. Su diámetro interior menor evita el hinchar y rajar la madera. Su paso de hilo mayor da superior resistencia al arrancamiento. Su filete es más alto y fino lo que permite un mayor número de remontaje',14990,7,'https://easycl.vtexassets.com/arquivos/ids/876189/1713361377740_750297-01.jpg?v=638489581864830000',10,4);
+insert into producto values(12,'Pasta muro 1 tineta F-15 blanco Tajamar','Pasta muro, selladores y pinturas. Encuentra todo para tus proyectos en nuestro sitio',15090,7,'https://easycl.vtexassets.com/arquivos/ids/669677/1673469776164_1197832-04.jpg?v=638090665837200000',11,5);
+insert into producto values(13,'Pasta muro 1 tineta blanco mate Sipa','Pasta muro, selladores y pinturas. Encuentra todo para tus proyectos en nuestro sitio',14990,8,'https://easycl.vtexassets.com/arquivos/ids/288908/1190525-01.jpg?v=637530012229870000',12,5);
+insert into producto values(14,'Pasta muro 1 galón F-15 Vinílica blanco Tajamar','Revestimiento plástico liso, preparado a base de resina vínilica.',4890,8,'https://easycl.vtexassets.com/arquivos/ids/157635/105420-04.jpg?v=637527388320330000',11,5);
+insert into producto values(15,'Nivel láser líneas y puntos verde GCL 2-15 G Bosch','El Nivel Láser Bosch GCL 2-15 G es el primer nivel láser verde 4 veces más visible y con líneas y puntos de plomada.',325990,6,'https://easycl.vtexassets.com/arquivos/ids/807187/1671566363485_1228637-04.jpg?v=638356710737830000',13,6);
+insert into producto values(16,'Huincha de medir metálica largo 10.0m Stanley','Cinta de acero al carbono revestida en film poliester Mylar para mayor durabilidad. Caja en material sintético cromado. Con clip de sujeción al cinturón',28990,7,'https://easycl.vtexassets.com/arquivos/ids/160039/120042.jpg?v=637527403384170000',3,6);
+insert into producto values(17,'Escuadra rápida 7x7\'\' TMT61201','no aplica',3590,5,'https://easycl.vtexassets.com/arquivos/ids/694393/1678367234117_1343773-01.jpg?v=638139640413900000',1,6);

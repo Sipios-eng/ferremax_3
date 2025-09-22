@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="index-template bg-body-tertiary p-3">
+    <div class="card w-100 p-5">
+        <h1>{{ producto.nombre }}</h1>
+      <div class="d-flex mx-auto justify-content-center">
+        <img src="{{ producto.imagen_url }}" alt="Imagen producto" class="w-75">
+      </div>
+      <div class="card-body">
+        <hr>
+          <p class="card-text">{{ producto.descripcion }}</p>
+          <hr>
+          <form  class="formulario" method="POST" action="{% url 'verProducto' producto.id %}">
+            {% csrf_token %}
+            <select class="form-select-sm" aria-label="Default select example" name="tipo_moneda">
+              <option selected disabled>Elige un tipo de conversion</option>
+                <option value="dolar">Dólar</option>
+                <option value="uf">UF</option>
+                <option value="euro">Euro</option>
+                <option value="utm">UTM</option>
+                <option value="{{producto.precio}}">Pesos</option>
+            </select>
+            <input type="hidden" name="producto_id" value="{{ producto.id }}">
+            <button class="btn btn-primary" type="submit">Cambiar moneda</button>
+          </form>
+          <hr>
+          {% if nuevo_precio %}
+          <p class="card-text"><strong>Precio Nuevo: $</strong>{{ nuevo_precio }}</p>
+          {%else%}
+          <p class="card-text"><strong>Precio: $</strong>{{ producto.precio }}</p>
+          {% endif %}
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'contact' %}"><button class="btn btn-danger" >Consultar por producto</button></a>
+          {% else %}
+          <a href="{% url 'auth_login' %}"><button class="btn btn-danger" >Consultar por producto</button></a>
+          {% endif %}
+          {% if request.user.is_authenticated %}
+          <button type="button" class="btn btn-primary agregar-carrito" value="{{ producto.id }}">Agregar al carrito</button>
+          {% else %}
+          <a href="{% url 'auth_login' %}"><button type="button" class="btn btn-primary agregar-carrito" value="{{ producto.id }}">Agregar al carrito</button></a>
+          {% endif %}
+        </div>
+    </div>    
+</div>
+
+{% endblock%} 

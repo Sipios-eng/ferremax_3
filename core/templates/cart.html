@@ -1,0 +1,74 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="bg-dark shadow rounded p-3 w-100 w-lg-50">
+    <h1 class="rounded bg-dark p-3 text-light">Carro de compras</h1>
+</div>
+<hr>
+{% for x in productos %}
+
+<div class="card shadow-lg mb-3">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img src="{{ x.imagen_url}}" alt="Producto" class="img-fluid">
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h5 class="card-title">{{ x.nombre}}</h5>
+          <p class="card-text">{{ x.descripcion}}</p>
+          <p class="card-text"><strong>Precio: $</strong>{{ x.precio}}</p>
+          {% for key, value in items.items %}
+            {% if key == x.id|slugify %}
+            <p class="card-text"><strong>Cantidad: </strong>{{ value }}</p>
+
+            {% endif %}
+          {% endfor %}  
+          <div class="col-md-3">
+          <select class="form-select form-select-sm" aria-label="Default select example" id="select{{x.id}}">
+            <option selected disabled>Elige una cantidad</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+          </select>
+        </div>
+          <br><br>
+          <button type="button" class="btn btn-secondary update-cart" data-index="{{x.id}}">Agregar Cantidad</button>
+          <button type="button" class="btn btn-danger delete-cart" data-index="{{x.id}}">Eliminar Producto</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}  
+  {% if not productos %}
+  <div class="container mt-5">
+    <div class="card text-center">
+      <div class="card-header">
+        No se encuentran productos en el carro
+      </div>
+      <div class="card-body">
+        <img src="https://cdn-icons-png.flaticon.com/512/102/102661.png" class="img-fluid rounded mx-auto d-block mb-3" alt="Imagen de no hay productos" width="100">
+        <p class="card-text">Tu carro de compra se encuentra vacio!</p>
+        <a href="{% url 'productos' %}"><button class="btn btn-primary">Agrega productos aqui</button></a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+<hr>
+<div class="card shadow-lg mb-3">
+    <div class="row justify-content-end">
+        <div class="col-md-6">
+            <div class="card-body">
+                <div class="d-flex justify-content-end">
+                    <h5 class="card-title"><strong>Total: </strong>{{total}}</h5>
+                    <h5 class="card-title" id="totalId"></h5>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <a href="{{preference.init_point}}" class="btn btn-primary">Ir a pagar</a>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+{% endblock%} 

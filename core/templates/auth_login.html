@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <h1 class="text-center my-5">Ingresar</h1>
+    <div class="d-flex justify-content-center">
+    <form class="row g-3 w-75 w-lg-50" method="POST">
+        {% csrf_token %}
+
+        <!-- Mostrar mensaje de error si existe 
+        {% if error %}
+        <div class="alert alert-danger w-100 text-center" role="alert">
+          {{ error }}
+        </div>
+        {% endif %}
+        -->
+    
+        <div class="form-floating">
+            <input type="email" class="form-control" id="email" name="email" required placeholder="Correo electrónico"/>
+            <label for="email" class="form-label mx-2">Correo electrónico</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password" name="password" required placeholder="Contraseña"/>
+            <label for="password" class="form-label mx-2">Contraseña</label>
+        </div>
+        <p class="text-end mt-5 ml-2 mb-0"><a href="#" class="help text-md-center">¿Olvidaste tu Contraseña?</a></p>
+        
+        <br><br><br>
+        <div class="col-12 btn-section">
+            <button class="btn btn-primary w-100 w-lg-50 shadow" type="submit">Ingresar</button>
+            <a href="{% url 'index' %}" class="btn btn-secondary w-100 w-lg-50 shadow" type="submit">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

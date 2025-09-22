@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <script defer src="../../static/js/common.js"></script>
+    <script src="https://kit.fontawesome.com/886627400f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Ferremax</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex align-items-center">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
+                    <img src="https://www.ferremax.cl/storage/2022/01/Frame-7.png" alt="Ferremax logo" width="100" height="90">
+                </a>              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{%url 'index' %}">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{%url 'productos' %}">Productos</a>
+                  </li>
+                  {% if perms.core.add_contact %}
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{%url 'consultaCliente' %}">Consultas Clientes</a>
+                  </li>
+                  {% endif %}
+                  {% if request.user.is_authenticated %}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link link-opt dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{%url 'contact' %}">Consultar producto</a></li>
+                    <li><a class="dropdown-item" href="{% url 'mis_consultas' request.user.id %}">Mis consultas</a></li>
+                  </ul>
+                  </li>
+                  {% endif %}
+                  {% if perms.core.view_producto %}
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'stock' %}">Stock disponible</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'pedidos' %}">Estado de Pedidos</a>
+                  </li>
+                  {% endif %}
+                  {% if perms.core.view_pedido %}
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'getApi' %}">Agregar productos API</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'agregar_producto' %}">Agregar producto</a>
+                  </li>
+                  <li class="nav-item"></li>
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'actualizar_producto' %}">Actualizar producto</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'eliminar_producto' %}">Eliminar producto</a>
+                  </li>
+                  {% endif %}
+                  {% if perms.core.add_entrega %}
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'entrega' %}">Ver entrega de pedidos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'registrarEntrega' %}">Cambiar entrega de pedidos</a>
+                  </li>
+                  {% endif %}
+                </ul>
+                <form class="d-flex" method="get" action="{% url 'busqueda' %}" autocomplete="off">
+                  <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search" name="nombre" value="{{ request.GET.nombre }}">
+                  <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                </form>
+                <ul class="navbar-nav me-0 mb-2 mb-lg-0">
+                  {% if request.user.is_authenticated %}
+                  <li class="nav-item">                   
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'cart' %}"><span id="cart-icon" class="fa fa-shopping-cart fa-lg fa-bounce"><span class="badge bg-dark text-white ms-2 rounded-pill" id="cart_quantity">{{ cart|length}}</span></span></a>
+                  </li>
+                  {% else %}
+                  <li class="nav-item">                   
+                    <a class="nav-link link-opt" aria-current="page" href="{% url 'auth_login' %}"><span id="cart-icon" class="fa fa-shopping-cart fa-lg fa-bounce"></span></a>
+                  </li>
+                  {% endif %}
+                    <li class="nav-item dropdown">
+                      {% if request.user.is_authenticated %}
+                          <a class="nav-link link-opt dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hola {{user.username}}
+                          </a>
+                          {% else %}
+                          <a class="nav-link link-opt dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Usuarios
+                          </a>
+                          {% endif %} 
+                        <ul class="dropdown-menu">
+                          {% if user.is_authenticated %} 
+                          <li><a class="dropdown-item" href="{% url 'exit' %}">Desconectar</a></li>
+                          {% else %} 
+                          <li><a class="dropdown-item" href="{% url 'auth_login' %}">Ingresar</a></li>
+                          <li><a class="dropdown-item" href="{% url 'auth_register' %}">Registrarse</a></li>
+                          {% endif %} 
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-opt" aria-current="page" href="http://127.0.0.1:8000/admin">Admin</a>
+                    </li>  
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <hr>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer class="bg-body-tertiary text-center p-3">
+      <hr>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex align-items-center">
+          <div class="container-fluid">
+              <a class="navbar-brand d-flex align-items-center" href="{%url 'index' %}">
+              <img src="https://www.ferremax.cl/storage/2022/01/Frame-7.png" alt="Ferremas logo" width="100" height="90">Ferremax
+              </a>
+
+              <div>
+                  
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-0 mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link link-opt" aria-current="page" href="#">Nosotros</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link link-opt" aria-current="page" href="#">Política de Privacidad</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link link-opt" aria-current="page" href="#">Licencias</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link link-opt" aria-current="page" href="#">Contacto</a>
+                      </li>
+                  </ul>
+              </div>
+              </div>
+          </div>
+      </nav>
+      <hr>
+      <span>© 2024 <a href="{%url 'index' %}">Ferremax™</a>. Todos los derechos reservados.</span> 
+    </footer>  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</body>
+</html>

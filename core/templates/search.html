@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Resultados de búsqueda</h1>
+    {% if productos %}
+        <p class="text-muted" >Mostrando resultados para : "<strong>{{ query }}</strong>"</p>
+        <p class="text-success">Se encontraron <strong>{{productos.count}}</strong> productos relacionados</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Tipo de Producto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td><a href="{% url 'verProducto' producto.id %}">{{ producto.nombre }}</a></td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.marca.nombre }}</td>
+                    <td>{{ producto.tipo_producto.nombre }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <div class="container mt-5">
+        <div class="card text-center">
+          <div class="card-header">
+            No se encontraron resultados relacionados
+          </div>
+          <div class="card-body">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/007/126/non_2x/document-file-not-found-search-no-result-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg" class="img-fluid rounded mx-auto d-block mb-3" alt="Imagen de no hay productos" width="200">
+            <p class="card-text text-danger">No se encontraron resultados para "{{ query }}" </p>
+            <a href="{% url 'productos' %}"><button class="btn btn-primary">Busca productos aqui</button></a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="bg-dark shadow rounded p-3 w-100 w-lg-50">
+    <h1 class="rounded bg-dark p-3 text-light">Ver entrega de productos</h1>
+</div>
+
+<br>
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'error' %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>{{ message }}</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> 
+    {% elif message.tags == 'success' %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{ message }}</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %} 
+  {% endfor %}
+{% endif %}
+<br>
+
+<table class="table table-striped table-hover shadow-lg mb-5 text-center">
+    <thead>
+      <tr>
+        <th scope="col" class="col">id</th>
+        <th scope="col" class="col">Pedido</th>
+        <th scope="col" class="col">Fecha Entrega</th>
+        <th scope="col" class="col">Estado</th>
+        <th scope="col" class="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in entrega %}
+        {% for x in pedidos%}
+      <tr>
+        <td>{{ i.id_entrega }}</td>
+        <td>{{ x.nombre }}</td>
+        <td>{{ i.fecha_entrega }}</td> 
+        <td>{{ i.estado_entrega.estado}}</td> 
+        <td><a class="btn btn-primary shadow" href="{% url 'edit_entrega' i.id_entrega%}" role="button">Ver pedido</a></td>
+       </tr>
+        {% endfor %}
+    {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock%} 

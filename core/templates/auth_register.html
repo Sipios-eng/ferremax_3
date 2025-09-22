@@ -1,0 +1,63 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1 class="text-center my-5">Registrarse</h1>
+    <div class="d-flex justify-content-center">
+    <form class="row g-3 w-75 w-lg-50" method="POST" action="" autocomplete="off">
+        {% csrf_token %}
+{% if messages %}
+            {%for msg in messages%}
+              {%if msg.tags == 'error' %}
+              <div class="alert alert-danger  alert-dismissible fade show" role="alert">
+                <strong>{{ msg }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div> 
+              {%elif msg.tags == 'success'%}
+              <div class="alert alert-success  alert-dismissible fade show" role="alert">
+                <strong>{{ msg }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div> 
+              {%  endif %} 
+            {% endfor %}
+{%endif%}
+        <div class="form-floating">
+            <input type="text" class="form-control" id="usernameId" name="username" required placeholder="Username"/>
+            <label for="usernameId" class="form-label mx-2">Nombre Usuario</label>
+        </div>
+        <span id="pUsernameid"></span>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="nameId" name="name" required placeholder="Nombre"/>
+            <label for="nameId" class="form-label mx-2">Nombre</label>
+        </div>
+        <span id="pNameid"></span>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="lastNameId" name="last_name" required placeholder="Apellido"/>
+            <label for="lastNameId" class="form-label mx-2">Apellido</label>
+        </div>
+        <span id="pLastnameid"></span>
+        <div class="form-floating">
+            <input type="email" class="form-control" id="emailId" name="email" required placeholder="Correo electrónico"/>
+            <label for="emailId" class="form-label mx-2">Correo electrónico</label>
+        </div>
+        <div class="form-floating">
+            <input type="email2" class="form-control" id="emailId2" name="email2" required placeholder="Confirme correo electrónico"/>
+            <label for="emailId2" class="form-label mx-2">Confirme correo electrónico</label>
+        </div>
+        <span id="pEmailid"></span>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="passwordId" name="password" required placeholder="Contraseña"/>
+            <label for="passwordId" class="form-label mx-2">Contraseña</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="passwordId2" name="password2" required placeholder="Confirme contraseña"/>
+            <label for="passwordId2" class="form-label mx-2">Confirme contraseña</label>
+        </div>
+        <span id="pPasswordid"></span>
+        <div class="col-12 btn-section">
+            <button class="btn btn-primary w-100 w-lg-50 shadow" type="submit">Registrarse</button>
+            <a href="{% url 'index' %}" class="btn btn-secondary w-100 w-lg-50 shadow" type="submit">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

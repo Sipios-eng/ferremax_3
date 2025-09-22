@@ -1,0 +1,55 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="bg-dark shadow rounded p-3 w-100 w-lg-50">
+    <h1 class="rounded bg-dark p-3 text-light">Registrar entrega de productos</h1>
+</div>
+<br>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success  alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div> 
+{% endfor %}
+{%endif%}
+<div class="d-flex justify-content-center">
+    {% for pedido in pedidos %}
+    <form class="row g-3 w-75 w-lg-50" method="POST" action="" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="mb-4">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="nameId{{ pedido.id }}" name="name" value="{{ pedido.User }}" disabled/>
+                    <label for="nameId{{ pedido.id }}" class="form-label mx-2">Nombre Cliente</label>
+                </div>
+                <label for="pedido{{ pedido.id }}" class="mt-2">Seleccionar Pedido:</label>
+                <select class="form-control" id="pedido{{ pedido.id }}" name="pedido">
+                    <option value="{{ pedido.id }}">{{ pedido.nombre }}</option>
+                </select>
+                <div class="form-group mt-3">
+                    <label for="fecha_entrega{{ pedido.id }}">Fecha de Entrega:</label>
+                    <input type="date" class="form-control" id="fecha_entrega{{ pedido.id }}" name="fecha_entrega">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="estado_entrega{{ pedido.id }}">Seleccionar estado de entrega:</label>
+                    <select class="form-control" id="estado_entrega{{ pedido.id }}" name="estado_entrega">
+                        <option selected disabled>Seleccionar un tipo</option>
+                        {% for estado in estados %}
+                            <option value="{{ estado.id }}">{{ estado.estado }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="">
+            <button class="btn btn-primary w-100 w-lg-50 shadow" type="submit">Registrar Entregas</button>
+            <a href="{% url 'index' %}" class="btn btn-secondary w-100 w-lg-50 shadow" type="submit">Cancelar</a>
+        </div>
+    </form>
+    {% endfor %}
+    <br>
+
+</div>
+{% endblock %}

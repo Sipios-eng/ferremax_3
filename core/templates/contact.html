@@ -1,0 +1,52 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="bg-dark shadow rounded p-3 w-100 w-lg-50">
+    <h1 class="rounded bg-dark p-3 text-light">Consultar producto</h1>
+</div>
+  <br>
+<div class="d-flex justify-content-center">
+    <br>
+    <form class="row g-3 w-75 w-lg-50" method="POST">
+        {% csrf_token %}
+        {% if messages%}
+            {%for msg in messages%}
+              {%if msg.tags == 'error' %}
+              <div class="alert alert-danger  alert-dismissible fade show" role="alert">
+                <strong>{{ msg }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div> 
+              {%elif msg.tags == 'success'%}
+              <div class="alert alert-success  alert-dismissible fade show" role="alert">
+                <strong>{{ msg }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div> 
+              {%  endif %} 
+            {% endfor %}
+        {%endif%} 
+        <div class="form-floating">
+            <input type="text" class="form-control" id="name" name="motivo" required placeholder="Motivo"/>
+            <label for="motivo" class="form-label mx-2">Motivo de contacto</label>
+        </div>
+        <div class="form-floating">
+        <select class="form-select" aria-label="Default select example" name="productoId" id="producto_id" required>
+            <option selected disabled>Seleccion un producto</option>
+                {% for x in producto %}
+                    <option value="{{ x.id }}">{{ x.nombre }}</option>
+                {% endfor %}
+        </select>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" id="comment" name="comment" style="height: 100px" required placeholder="Escriba su comentario aquí"></textarea>
+            <label for="comment" class="form-label mx-2">Comentario</label>
+        </div>
+        <br><br><br>
+        <div class="col-12 btn-section">
+            <button class="btn btn-primary w-100 w-lg-50 shadow" type="submit">Enviar comentario</button>
+            <a href="{% url 'index' %}" class="btn btn-secondary w-100 w-lg-50 shadow" type="submit">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
