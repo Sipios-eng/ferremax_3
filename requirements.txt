@@ -1,0 +1,7 @@
+python-dotenv
+mercadopago
+xhtml2pdf
+pandas
+plotly
+behave
+selenium
